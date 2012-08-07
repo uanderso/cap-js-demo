@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JS Demo</title>
+		<link rel="stylesheet" href="css/desktop.css" />
+		<script src="js/lib/jquery.js"></script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="status-message">Status Message</div>
+			<h1>cap js ws</h1>
+			<div id="contact-viewer-wrapper">
+				<div id="contact-viewer-editor">
+					<form>
+						<input type="hidden" id="contact-editor-guid" name="contect-editor-guid" value="" />
+						<ul>
+							<li><label for="contact-editor-name">Name</label><input type="text" id="contact-editor-name" name="contact-editor-name" /></li>
+							<li><label for="contact-editor-phone">Phone</label><input type="text" id="contact-editor-phone" name="contact-editor-phone" /></li>
+							<li><label for="contact-editor-mail">Mail</label><input type="text" id="contact-editor-mail" name="contact-editor-mail" /></li>
+							<li><label for="contact-editor-street">Street</label><input type="text" id="contact-editor-street" name="contact-editor-street" /></li>
+							<li><label for="contact-editor-city">City &amp; postal</label><input type="text" id="contact-editor-city" name="contact-editor-city" /></li>
+							<li class="contact-editor-buttons clearfix"><button id="contact-editor-save">Save</button><button id="contact-editor-reset">Reset</button></li>
+						</ul>
+					</form>
+				</div>
+				<div id="contact-viewer-placeholder">
+					<p>
+						Select a contact from the list below.
+					</p>
+				</div>
+			</div>
+			<div id="contact-list-wrapper">
+				<ul id="contact-list">
+					<li><span class="contact-list-name">Christofer Pak</span><span class="contact-list-phone">+46702579081</span><span class="contact-list-mail">christoferpak@gmail.com</span></li>
+				</ul>
+			</div>
+		</div>
+		<script src="js/App.js"></script>
+		<script src="js/models/Contacts.js"></script>
+		<script src="js/views/ContactList.js"></script>
+		<script src="js/views/ContactEditor.js"></script>
+		<script src="js/views/StatusMessage.js"></script>
+	</body>
+</html>
