@@ -2,7 +2,7 @@ App.views.add('ContactEditor', {
 	elements: {},
 
 	init: function() {
-		// S‰tt upp referenser till element
+		// S√§tt upp referenser till element
 		this.elements.editor = document.getElementById('contact-viewer-editor');
 		this.elements.placeholder = document.getElementById('contact-viewer-placeholder');
 		
@@ -31,14 +31,14 @@ App.views.add('ContactEditor', {
 		
 		// Browser events
 		this.elements.saveButton.addEventListener('click', function (ev) {
-			// Vi mÂste fˆrhindra normalt webl‰sarbeteende h‰r.
-			// Annars fˆrsˆker webl‰saren posta formul‰ret synkront.
+    		// Vi m√•ste f√∂rhindra normalt webl√§sarbeteende h√§r.
+			// Annars f√∂rs√∂ker webl√§saren posta formul√§ret synkront.
 			ev.preventDefault();
 			App.fireEvent('requestSave', self.getContactData());
 		}, false);
 	},
 
-	// Populerar input-elementen med data frÂn en kontaktinstans
+	// Populerar input-elementen med data fr√•n en kontaktinstans
 	// och visar kontakteditorn.
 	showContact: function(guid) {
 		var c;
@@ -70,7 +70,7 @@ App.views.add('ContactEditor', {
 		}
 	},
 	
-	// H‰mtar data frÂn formul‰ret
+	// H√§mtar data fr√•n formul√§ret
 	getContactData: function() {
 		return {
 			id: this.elements.guid.value,

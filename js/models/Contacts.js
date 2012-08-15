@@ -16,7 +16,7 @@ App.models.add('Contacts', {
 		});
 	},
 	
-	// Returnerar ett item med matchande ID ur vår datasamling
+	// Returnerar ett item med matchande ID ur vÃ¥r datasamling
 	getById: function(id) {
 		var r,
 			i;
@@ -53,7 +53,7 @@ App.models.add('Contacts', {
 		}
 	},
 
-	// Laddar data från server eller från localStorage
+	// Laddar data frÃ¥n server eller frÃ¥n localStorage
 	load: function(p) {
 		var self = this
 			lsKey = App.getLocalStorageKey('contacts'),
@@ -83,13 +83,13 @@ App.models.add('Contacts', {
 		}
 	},
 	
-	// Skickar våra kontakter till servern, som får stå för eventuell
+	// Skickar vÃ¥ra kontakter till servern, som fÃ¥r stÃ¥ fÃ¶r eventuell
 	// merge av data. Om ingen server finns (!App.online) skriver vi bara ner all data
-	// till localStorage. Vi hade ju kunnat göra en merge med eventuellt
+	// till localStorage. Vi hade ju kunnat gÃ¶ra en merge med eventuellt
 	// befintlig data i localStorage, men det bidrar inte direkt till det
-	// här exemplet.
+	// hÃ¤r exemplet.
 	sync: function(p) {
-		if(App.online) {
+		if(!!App.online) {
 			log('[Contacts] Synchronizing with server...');
 			$.ajax({
 				type: 'POST',
@@ -114,7 +114,7 @@ App.models.add('Contacts', {
 	},
 	
 	// Populerar samlingen av kontakter genom att skapa ett nytt
-	// kontaktobjekt för varje förekomst i den hämtade datan.
+	// kontaktobjekt fÃ¶r varje fÃ¶rekomst i den hÃ¤mtade datan.
 	populateContacts: function(data) {
 		var i;
 		for(i in data) {

@@ -1,4 +1,4 @@
-// Global genväg till log-funktionen, med feature detection
+// Global genvÃ¤g till log-funktionen, med feature detection
 log = function(m) {
 	if(console && console.log) {
 		console.log(m);
@@ -6,8 +6,8 @@ log = function(m) {
 };
 
 // Bootstrapping
-// Då DOM är laddat har vi alla beroenden på plats
-// och är redo att starta vår app.
+// DÃ¥ DOM Ã¤r laddat har vi alla beroenden pÃ¥ plats
+// och Ã¤r redo att starta vÃ¥r app.
 document.addEventListener('DOMContentLoaded', function() {
 	log('DOMContentLoaded');
 	document.removeEventListener('DOMContentLoaded', arguments.callee, false);
@@ -15,19 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false );
 
 
-// Vi definierar en global variabel App, som även fungerar
-// som namespace för allt vi gör samt "mediator" mellan våra
-// moduler. Här används modul-mönstret, med motsvarigheten till
+// Vi definierar en global variabel App, som fungerar
+// som namespace fÃ¶r allt vi gÃ¶r samt "mediator" mellan vÃ¥ra
+// moduler. HÃ¤r anvÃ¤nds modul-mÃ¶nstret, med motsvarigheten till
 // privata och publika attribut och metoder.
 var App = (function () {
 	var appName = 'cap-js-demo';
 
-	// models och views är helt identiska och har som
-	// uppgift att hålla referenser till alla moduler.
+    // models och views Ã¤r helt identiska och har som
+	// uppgift att hÃ¥lla referenser till alla moduler.
 	var models = {
 		instances: {},
-		// Registrerar en ny modul och ropar på dess init-
-		// metod om det finns någon
+    	// Registrerar en ny modul och ropar pÃ¥ dess init-
+		// metod om det finns nÃ¥gon
 		add: function(name, instance) {
 			this.instances[name] = instance;
 			if(typeof instance.init == 'function') {
@@ -59,10 +59,10 @@ var App = (function () {
 	
 	
 	
-	// Enkelt system för att publicera events inom appen
+    // Enkelt system fÃ¶r att publicera events inom appen
 	var listeners = {};
 	
-	// Moduler lägger till sig själva för att ta emot meddelanden
+    // Moduler lÃ¤gger till sig sjÃ¤lva fÃ¶r att ta emot meddelanden
 	// som andra moduler publicerar.
 	var addListener = function(eventName, handler, context) {
 		if(!listeners[eventName]) {
@@ -90,8 +90,8 @@ var App = (function () {
 	};
 	
 	var appReady = function() {
-		// Publicera ett event för att meddela alla moduler
-		// att appen är redo att användas.
+    	// Publicera ett event fÃ¶r att meddela alla moduler
+		// att appen Ã¤r redo att anvÃ¤ndas.
 		fireEvent('App.ready');
 	};
 	
@@ -109,9 +109,10 @@ var App = (function () {
 		}
 		return function generateGuid() {
 			return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
-		}
+		};
 	}());
 	
+    
 	// Returnera publikt interface
 	return {
 		models: models,
@@ -123,4 +124,5 @@ var App = (function () {
 		getLocalStorageKey: getLocalStorageKey,
 		generateGuid: GuidGen
 	};
+    // IIFE - Immediately Invoked Function Expression
 }());

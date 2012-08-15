@@ -3,7 +3,7 @@ App.views.add('ContactList', {
 	elements: {},
 
 	init: function() {
-		// Sätt upp referenser till element
+		// SÃ¤tt upp referenser till element
 		this.elements.contactList = document.getElementById('contact-list');
 		
 		this.bind();
@@ -13,7 +13,7 @@ App.views.add('ContactList', {
 	bind: function() {
 		var self = this;
 		// App-interna events
-		// Uppdatera visningen av kontaktlistan då modellen fått ny data
+		// Uppdatera visningen av kontaktlistan dÃ¥ modellen fÃ¥tt ny data
 		App.addListener('populateContacts', function(contacts) {
 			self.renderContacts(contacts);
 		});
@@ -23,26 +23,26 @@ App.views.add('ContactList', {
 		});
 		
 		// Browser events
-		// Vi har inga browser events att binda än
-		// Vi sätter click handlers i renderContacts nedan.
+        // Vi binder click handler som visar en kontakt
+        // pÃ¥ sjÃ¤lva listelementet
+        this.elements.contactList.addEventListener('click', function (e) {
+            if(e.target.getAttribute('class').substr('contact-list-item') > -1) {
+                App.fireEvent('showContact', e.target.getAttribute('data-guid'));
+            }
+        }, false);
+        
 	},
 	
 	// Renderar kontaktlistan
 	renderContacts: function(contacts) {
-		var listHtmlBuilder = [],
-			li,
-			i,
+		var i,
 			c;
 		
 		this.elements.contactList.innerHTML = '';
 		
 		for(i in contacts) {
 			c = contacts[i];
-			li = this.createListItem(c.id, c.name, c.phone, c.mail);
-			li.addEventListener('click', function() {
-				App.fireEvent('showContact', this.getAttribute('data-guid'));
-			}, true);
-			this.elements.contactList.appendChild(li);
+			this.elements.contactList.appendChild(this.createListItem(c.id, c.name, c.phone, c.mail));
 		}
 		
 	},
