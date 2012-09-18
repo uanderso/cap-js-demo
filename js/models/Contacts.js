@@ -123,7 +123,7 @@ App.models.add('Contacts', {
 		App.fireEvent('populateContacts', this.data);
 	},
 	
-	// Kontakt-entitets"klassen"
+	// Kontakt-entitet
 	Contact: {
 		create: function(data) {
 			// Returnerar en ny instans av en en kontakt.

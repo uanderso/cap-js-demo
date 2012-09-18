@@ -36,6 +36,13 @@ App.views.add('ContactEditor', {
 			ev.preventDefault();
 			App.fireEvent('requestSave', self.getContactData());
 		}, false);
+        
+        this.elements.resetButton.addEventListener('click', function (ev) {
+        	// Vi måste förhindra normalt webläsarbeteende här.
+			// Annars försöker webläsaren posta formuläret synkront.
+			ev.preventDefault();
+			App.fireEvent('requestReset', self.getContactData());
+		}, false);
 	},
 
 	// Populerar input-elementen med data från en kontaktinstans
