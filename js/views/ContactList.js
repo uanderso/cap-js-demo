@@ -26,8 +26,14 @@ App.views.add('ContactList', {
         // Vi binder click handler som visar en kontakt
         // på själva listelementet
         this.elements.contactList.addEventListener('click', function (e) {
-            if(e.target.getAttribute('class').substr('contact-list-item') > -1) {
-                App.fireEvent('showContact', e.target.getAttribute('data-guid'));
+            var el = e.target,
+                tagName = el.tagName.toLowerCase();
+            while (tagName != 'li' && tagName != 'ul') {
+                el = el.parentNode;
+                tagName = el.tagName.toLowerCase();
+            }
+            if(tagName == 'li' && el.getAttribute('class').indexOf('contact-list-item') > -1) {
+                App.fireEvent('showContact', el.getAttribute('data-guid'));
             }
         }, false);
         
