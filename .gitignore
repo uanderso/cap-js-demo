@@ -1,4 +1,5 @@
 .DS_Store*
 wbapp.tmproj
 presentation/*.psd
-
+*.sublime-project
+*.sublime-workspace

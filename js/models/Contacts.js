@@ -55,7 +55,7 @@ App.models.add('Contacts', {
 
 	// Laddar data från server eller från localStorage
 	load: function(p) {
-		var self = this
+		var self = this,
 			lsKey = App.getLocalStorageKey('contacts'),
 			storedContacts = localStorage.getItem(lsKey);
 			
