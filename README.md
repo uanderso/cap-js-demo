@@ -38,7 +38,8 @@ rot
  |	 ├─ models - innehåller JS för vår modell och vår "collection"
  |	 └─ views - innehåller JS för våra vyer
  ├─ (presentation)
- ├─ resources - innehåller resurser vår applikation använder (bilder, css) samt JS-bilbiotek så att dessa inte editeras "av misstag"
+ ├─ resources - innehåller resurser vår applikation använder (bilder, css) samt
+ |		JS-bilbiotek så att dessa inte editeras "av misstag"
  ├─ README.md - denna fil
  └─ index.html - startpunkten för vår app
 </pre>
